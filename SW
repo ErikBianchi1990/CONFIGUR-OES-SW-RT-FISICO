@@ -54,11 +54,6 @@ switchport mode access
 switchport access vlan 30
 description REDE TI
 exit
-exitinterface fastEthernet 0/4
-switchport mode access
-switchport access vlan 100
-description REDE GERENCIAMENTO
-exit
 interface vlan 100
 ip address 192.168.5.182 255.255.255.248
 description INTERFACE DE GERENCIAMENTO
