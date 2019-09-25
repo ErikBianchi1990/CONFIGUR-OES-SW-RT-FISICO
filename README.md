@@ -1,1 +1,1 @@
-# Configurações Router e Switc físicos !!!
+# Configurações Router e Switch físicos !!!
