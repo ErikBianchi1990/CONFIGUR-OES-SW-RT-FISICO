@@ -1,4 +1,4 @@
-nable
+enable
 clock set 09:47:00 25 sep 2019
 configure terminal
 hostname SW-TARGARYEN
@@ -42,25 +42,25 @@ exit
 exitinterface fastEthernet 0/1
 switchport mode access
 switchport access vlan 10
-ip address 192.168.5.129 255.255.255.224
 description REDE SECRETARIA
 exit
 exitinterface fastEthernet 0/2
 switchport mode access
 switchport access vlan 20
-ip address 192.168.5.1 255.255.255.128
 description REDE ALUNOS
 exit
 exitinterface fastEthernet 0/3
 switchport mode access
 switchport access vlan 30
-ip address 192.168.5.161 255.255.255.240
 description REDE TI
 exit
 exitinterface fastEthernet 0/4
 switchport mode access
 switchport access vlan 100
-ip address 192.168.5.177 255.255.255.248
 description REDE GERENCIAMENTO
+exit
+interface vlan 100
+ip address 192.168.5.182 255.255.255.248
+description INTERFACE DE GERENCIAMENTO
 exit
 do wr
