@@ -1,0 +1,66 @@
+nable
+clock set 09:47:00 25 sep 2019
+configure terminal
+hostname SW-TARGARYEN
+banner motd "ACESSO APENAS PARA O GRUPO TARGARYEN!!"
+enable secret EG2019@SENAI
+service password-encryption
+ip domain-name grupo5.Local
+crypto key generate rsa general-key modulus 1024
+username GabrielSilva privilege 15 secret TARGARYEN#05
+username ErikBianchi privilege 15 secret TARGARYEN#90
+line console 0
+password ACESSOCONSOLE05
+login
+exit
+line vty 0 15
+transport input ssh
+login local
+exec-timeout 9
+exit 
+ip default-gateway 192.168.5.177
+vlan 10
+name SECRETARIA
+exit
+vlan 20
+name ALUNOS
+exit
+vlan 30
+name TI
+exit
+vlan 100
+name GERENCIAMENTO
+exit
+vlan 99
+name NATIVA
+interface gigabitEthernet 0/1
+switchport mode trunk
+switchport trunk allowed vlan 10,20,30,99
+switchport trunck native vlan 99
+no shutdown
+exit
+exitinterface fastEthernet 0/1
+switchport mode access
+switchport access vlan 10
+ip address 192.168.5.129 255.255.255.224
+description REDE SECRETARIA
+exit
+exitinterface fastEthernet 0/2
+switchport mode access
+switchport access vlan 20
+ip address 192.168.5.1 255.255.255.128
+description REDE ALUNOS
+exit
+exitinterface fastEthernet 0/3
+switchport mode access
+switchport access vlan 30
+ip address 192.168.5.161 255.255.255.240
+description REDE TI
+exit
+exitinterface fastEthernet 0/4
+switchport mode access
+switchport access vlan 100
+ip address 192.168.5.177 255.255.255.248
+description REDE GERENCIAMENTO
+exit
+do wr
